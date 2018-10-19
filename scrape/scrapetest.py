@@ -14,8 +14,10 @@ except URLError as e:
 else:
     print('It worked!')
 
-    bs = BeautifulSoup(html.read(), 'html.parser')
-    content = bs.find('div', id='mw-content-text').get_text()
+    soup = BeautifulSoup(html.read(), 'html.parser')
+    content = soup.find('div', id='mw-content-text')
     # content = bytes(content, 'UTF-8')
     # content = content.decode('UTF-8')
-    print(content)
+    links = content.find_all('a')
+    for link in links:
+        print(link.get('href'))
