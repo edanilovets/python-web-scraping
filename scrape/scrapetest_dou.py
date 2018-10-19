@@ -8,7 +8,10 @@ html = urlopen('https://jobs.dou.ua/vacancies/?category=QA')
 bs = BeautifulSoup(html, 'html.parser')
 cities = bs.find('ul', {'class': 'other'}).find_all('a')
 
-for city in cities:
-    print(city)
+# for city in cities:
+#     print(city)
 
-# print(bs.head)
+new_vacancies = bs.find('div', id='vacancyListId').find_all('a')
+
+for vacancy in new_vacancies:
+    print(vacancy)

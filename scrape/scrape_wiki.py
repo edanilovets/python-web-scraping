@@ -5,9 +5,6 @@ from bs4 import BeautifulSoup
 import re
 
 
-
-
-
 # find all links
 # for link in bs.find_all('a'):
 #     if 'href' in link.attrs:
@@ -35,3 +32,4 @@ while len(links) > 0:
     new_article = links[random.randint(0, len(links)-1)].attrs['href']
     print(new_article)
     links = get_links(new_article)
+
